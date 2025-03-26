@@ -13,7 +13,7 @@
 
 #define FE_VERSION "1.0"
 
-typedef float fe_Number;
+typedef double fe_Number;
 typedef struct fe_Object fe_Object;
 typedef struct fe_Context fe_Context;
 typedef fe_Object* (*fe_CFunc)(fe_Context *ctx, fe_Object *args);
