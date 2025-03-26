@@ -43,13 +43,13 @@
 enum {
 	P_LET, P_SET, P_IF, P_FN, P_MAC, P_WHILE, P_QUOTE, P_AND, P_OR, P_DO, P_CONS,
 	P_CAR, P_CDR, P_SETCAR, P_SETCDR, P_LIST, P_NOT, P_EQ, P_ATOM, P_PRINT, P_LT,
-	P_LTE, P_ADD, P_SUB, P_MUL, P_DIV, P_MAX
+	P_LTE, P_ADD, P_SUB, P_MUL, P_DIV, P_NEQ, P_MAX
 };
 
 static const char* primnames[] = {
   "let", "=", "if", "fn", "mac", "while", "quote", "and", "or", "do", "cons",
   "car", "cdr", "setcar", "setcdr", "list", "not", "==", "atom", "print", "<",
-  "<=", "+", "-", "*", "/"
+  "<=", "+", "-", "*", "/", "!="
 };
 
 static const char* typenames[] = {
@@ -748,6 +748,11 @@ static fe_Object* eval(fe_Context* ctx, fe_Object* obj, fe_Object* env, fe_Objec
 		case P_SUB: arithop(-); break;
 		case P_MUL: arithop(*); break;
 		case P_DIV: arithop(/ ); break;
+
+		case P_NEQ:
+			va = evalarg();
+			res = fe_bool(ctx, !equal(va, evalarg()));
+			break;
 		}
 		break;
 

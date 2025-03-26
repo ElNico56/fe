@@ -117,6 +117,9 @@ Returns true if the values `a` and `b` are equal in value. Numbers and strings
 are equal if equivalent, all other values are equal only if it is the same
 underlying object.
 
+##### (!= a b)
+Returns the opposite of `==`.
+
 ##### (atom x)
 Returns true if `x` is not a pair, otherwise `nil`.
 
