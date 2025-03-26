@@ -2,7 +2,7 @@
   (while (< 0 n)
     (= n (- n 1))
     (= lst (cdr lst)))
-  (if (is n 0) (car lst))
+  (if (== n 0) (car lst))
 ))
 
 
@@ -29,7 +29,7 @@
 (= print-grid (fn (grid)
   (map
     (fn (row)
-      (print (map (fn (x) (if (is x 0) '- '#)) row))
+      (print (map (fn (x) (if (== x 0) '- '#)) row))
     )
     grid
   )
@@ -53,8 +53,8 @@
     (get-cell grid (+ x 1)  (+ y 1))
   ))
   (if
-    (and (is cell 1) (or (is n 2) (is n 3))) 1
-    (and (is cell 0) (is n 3)) 1
+    (and (== cell 1) (or (== n 2) (== n 3))) 1
+    (and (== cell 0) (== n 3)) 1
     0
   )
 ))

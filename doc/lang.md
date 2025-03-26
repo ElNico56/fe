@@ -17,9 +17,9 @@ statements can be chained to replicate the functionality of else-if blocks.
 ```clojure
 > (= x 2)
 nil
-> (if (is x 1) "one"
-      (is x 2) "two"
-      (is x 3) "three"
+> (if (== x 1) "one"
+      (== x 2) "two"
+      (== x 3) "three"
       "?")
 two
 ```
@@ -112,7 +112,7 @@ Returns true if `val` is `nil`, else returns `nil`
 nil
 ```
 
-##### (is a b)
+##### (== a b)
 Returns true if the values `a` and `b` are equal in value. Numbers and strings
 are equal if equivalent, all other values are equal only if it is the same
 underlying object.
